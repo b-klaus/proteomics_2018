@@ -1,0 +1,51 @@
+sample_id	source_file	acquired_spectra	mascot_matched_spectra	spectra_in_qc_proteins	quantified_spectra	mean_precursor_ion_accuracy	sd_precursor_ion_accuracy	mean_reporter_ion_accuracy	sd_reporter_ion_accuracy
+1	Lumos_H0027_PH_T_R1_F12.raw	46829	29285	25191	25186	0.557815	1.85858	-0.000403694	0.0002063
+2	Lumos_H0027_PH_T_R1_F11.raw	46878	28696	24473	24468	0.491337	1.95428	-0.000414065	0.000208159
+3	Lumos_H0027_PH_T_R1_F10.raw	47214	28833	24253	24250	0.482505	2.08163	-0.000436621	0.000211541
+4	Lumos_H0027_PH_T_R1_F09.raw	47709	27592	22526	22511	0.532755	2.23274	-0.000469522	0.000209588
+5	Lumos_H0027_PH_T_R1_F08.raw	46703	25696	20703	20672	0.449812	2.42234	-0.000445326	0.000209977
+6	Lumos_H0027_PH_T_R1_F07.raw	45052	23129	18452	18420	0.469896	2.43364	-0.000443807	0.000211111
+7	Lumos_H0027_PH_T_R1_F06.raw	47401	28995	25175	25168	0.480887	1.87595	-0.000406626	0.000212774
+8	Lumos_H0027_PH_T_R1_F05.raw	47872	28630	24715	24701	0.562776	1.893	-0.000386686	0.000211198
+9	Lumos_H0027_PH_T_R1_F04.raw	47649	29050	25137	25130	0.519447	1.89495	-0.000359817	0.000211386
+10	Lumos_H0027_PH_T_R1_F03.raw	46612	28979	25428	25426	0.477207	1.82362	-0.000342352	0.000227465
+11	Lumos_H0027_PH_T_R1_F02.raw	46246	29259	25716	25716	0.466473	1.81738	-0.000365824	0.000222327
+12	Lumos_H0027_PH_T_R1_F01.raw	48279	30072	26212	26209	0.555279	1.82113	-0.000352134	0.000218357
+all	combined	564444	338216	287981	287857	0.505282279048	2.00188546435	-0.000398801060968	0.000217291145785
+
+
+type	protein_hits
+target	9684
+decoy	486
+
+
+fdr	min_mascot_score
+5%	7
+1%	18
+
+
+analysis	application	section	parameter	value
+preMascot	1 pyMSsafe	general	tolppm	8
+preMascot	1 pyMSsafe	general	tolmda	8
+preMascot	1 pyMSsafe	general	beforepeak	0.5
+preMascot	1 pyMSsafe	general	afterpeak	0.5
+preMascot	1 pyMSsafe	general	thread_count	3
+preMascot	1 pyMSsafe	general	printchargedata	True
+postMascot	2 proteinInference	general	minnumhook	1
+postMascot	2 proteinInference	general	dopickedproteinfdr	True
+postMascot	2 proteinInference	general	fdrthreshold	0.01
+postMascot	2 proteinInference	general	groupbygenename	True
+postMascot	5 quantifyProteins	general	fdrthreshold	0.01
+postMascot	5 quantifyProteins	ms2quantification	quantmethod	bootstrap
+postMascot	5 quantifyProteins	ms2quantification	remove_zeros	False
+postMascot	5 quantifyProteins	ms2quantification	remove_zero_threshold	-1
+postMascot	5 quantifyProteins	ms2quantification	p2tthreshold	4.0
+postMascot	5 quantifyProteins	ms2quantification	s2ithreshold	0.5
+postMascot	5 quantifyProteins	ms2quantification	mascotthreshold	15.0
+postMascot	5 quantifyProteins	ms2quantification	peplengthfilter	6
+postMascot	5 quantifyProteins	ms2quantification	fdrthreshold	0.01
+postMascot	5 quantifyProteins	ms2quantification	deltaseqfilter	5
+postMascot	5 quantifyProteins	ms2quantification	minquantspectra	4
+postMascot	5 quantifyProteins	ms2quantification	prior_ion_filter	1000.0
+postMascot	5 quantifyProteins	ms2quantification	least_squares_filter	1000.0
+postMascot	5 quantifyProteins	ms2quantification	ms1source_filter	None

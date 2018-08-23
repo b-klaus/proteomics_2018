@@ -1,0 +1,11 @@
+tmt.label,rep,condition
+126,rep1,wt
+127L,rep1,single_ko
+127H,rep1,double_ko
+128L,rep2,wt
+128H,rep2,single_ko
+129L,rep2,double_ko
+129H,rep3,wt
+130L,rep3,single_ko
+130H,rep3,double_ko
+131L,,
