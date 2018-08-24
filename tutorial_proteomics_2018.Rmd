@@ -1082,9 +1082,11 @@ rt <- rowttests(x, fac)
 
 
 We now compute the proportion of false positives among all positives,
-the false discovery proportion (FDP) which the Benjamini-Hochberg method
-controls at a pre-specified level. Indeed, this is controlled for our
-t-test:
+the false discovery proportion (FDP), the expected value of
+which the Benjamini-Hochberg method controls at a pre-specified level 
+(E(FDP) = FDR).
+
+Indeed, this is controlled for our t-test:
 
 
 ```{r ordinaryFDR}
@@ -1099,10 +1101,10 @@ FDP <- length(FP) / length(P)
 FDP
 ```
 
-The actual level is `r round(FDP, 3)` less than the 10% we set. If we now 
+The actual level is `r round(FDP, 3)` around the 10% we set. If we now 
 do a post-hoc thresholding, we can again compute the FDP: 
 
-## Thresholding approach 
+### Explore the post--Hoc thresholding approach 
 
 ```{r postHocFDR}
 fcs <- rt$dm
@@ -1130,7 +1132,7 @@ Therefore, post-hoc thresholding does not work.
 `r Biocpkg("limma")` implements a strategy to specifically test relative
 to a fold change threshold, for details see the paper by McCarthy and Smyth:
 
-[Testing significance relative to a fold-change threshold is a TREAT](dx.doi.org/10.1093/bioinformatics/btp053)
+[Testing significance relative to a fold-change threshold is a TREAT](http://dx.doi.org/10.1093/bioinformatics/btp053)
 
 Running it, we get an FDP lower than the threshold:
 
